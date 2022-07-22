@@ -8,10 +8,16 @@ class TodosController < ApplicationController
         todo.to_json
     end
 
-    post 'todos' do
+    post '/todos' do
         todo = Todo.create(
-            t.text :todo
+            todo: params[:todo]
         )
+        todo.to_json
     end
 
+    delete '/todos/:id' do
+        todo = Todo.find(params[:id])
+        todo.destroy
+        todo.to_json
+    end
 end
