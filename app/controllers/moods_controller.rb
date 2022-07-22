@@ -13,7 +13,13 @@ class MoodsController < ApplicationController
             mood: params[:mood],
             date: params[:date],
             win: params[:win],
-            challenge: [:challenge]
+            challenge: params[:challenge]
         )
+    end
+
+    delete '/moods/:id' do
+        mood = Mood.find(params[:id])
+        mood.destroy
+        mood.to_json
     end
 end
