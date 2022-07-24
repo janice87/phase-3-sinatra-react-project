@@ -18,7 +18,11 @@ class JournalsController < ApplicationController
 
     patch '/journals/:id' do
         journal = Journal.find(params[:id])
-        journal.update(content: params[:content])
+        # journal.update(content: params[:content])
+        journal.update(
+            date: params[:date], 
+            content: params[:content]
+            )
         journal.to_json
     end
 
