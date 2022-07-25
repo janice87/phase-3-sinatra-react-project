@@ -5,21 +5,24 @@ class TodosController < ApplicationController
     end
 
     get '/todos/:id' do
-        @todo = Todo.find(params[:id])
+        todo = Todo.find(params[:id])
         @todo.to_json
     end
 
     post '/todos' do
-        @todo = Todo.create(
-            # binding.pry
-           todo: params[:todo]
+        # binding.pry
+        todo = Todo.create(
+        todo: params[:todo]
         )
-        @todo.to_json
+        todo.to_json
     end
 
     delete '/todos/:id' do
-        @todo = Todo.find(params[:id])
-        @todo.destroy
-        @todo.to_json
+        todo = Todo.find(params[:id])
+        todo.destroy
+        todo.to_json
+        # @todo = Todo.find(params[:id])
+        # @todo.destroy
+        # @todo.to_json
     end
 end

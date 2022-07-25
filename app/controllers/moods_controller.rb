@@ -9,19 +9,19 @@ class MoodsController < ApplicationController
     end
         
     post '/moods' do
-        @mood = Mood.create(params)
-        if @mood.id
-            @mood.to_json
-        else
-            @mood.errors.full_messages.to_sentence
-        end
-        # mood = Mood.create(
-        #     mood: params[:mood],
-        #     date: params[:date],
-        #     win: params[:win],
-        #     challenge: params[:challenge]
-        # )
-        # mood.to_json # how come its empty?
+        # @mood = Mood.create(params)
+        # if @mood.id
+        #     @mood.to_json
+        # else
+        #     @mood.errors.full_messages.to_sentence
+        # end
+        mood = Mood.create(
+            mood: params[:mood],
+            date: params[:date],
+            win: params[:win],
+            challenge: params[:challenge]
+        )
+        mood.to_json
     end
 
     delete '/moods/:id' do
