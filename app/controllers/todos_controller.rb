@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 
     get '/todos/:id' do
         todo = Todo.find(params[:id])
-        @todo.to_json
+        todo.to_json
     end
 
     post '/todos' do
