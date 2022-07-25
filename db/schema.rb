@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_22_013431) do
+ActiveRecord::Schema.define(version: 2022_07_25_233418) do
 
   create_table "journals", force: :cascade do |t|
     t.date "date"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "moods", force: :cascade do |t|
@@ -24,10 +25,12 @@ ActiveRecord::Schema.define(version: 2022_07_22_013431) do
     t.date "date"
     t.text "win"
     t.text "challenge"
+    t.integer "user_id"
   end
 
   create_table "todos", force: :cascade do |t|
     t.text "todo"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
