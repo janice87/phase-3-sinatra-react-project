@@ -19,8 +19,7 @@ class JournalsController < ApplicationController
     end
 
     patch '/journals/:id' do
-        journal = Journal.find(params[:id])
-        # journal.update(content: params[:content])
+        journal = Journal.find(params[:id])       
         journal.update(
             date: params[:date], 
             content: params[:content]

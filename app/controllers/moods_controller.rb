@@ -8,13 +8,7 @@ class MoodsController < ApplicationController
         mood.to_json
     end
         
-    post '/moods' do
-        # @mood = Mood.create(params)
-        # if @mood.id
-        #     @mood.to_json
-        # else
-        #     @mood.errors.full_messages.to_sentence
-        # end
+    post '/moods' do        
         mood = Mood.create(
             mood: params[:mood],
             date: params[:date],

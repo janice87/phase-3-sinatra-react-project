@@ -18,8 +18,7 @@ class UsersController < ApplicationController
     end
 
     patch '/users/:id' do
-        user = User.find(params[:id])
-        # journal.update(content: params[:content])
+        user = User.find(params[:id])      
         user.update(
             email: params[:email]
             )
