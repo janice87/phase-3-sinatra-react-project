@@ -19,7 +19,8 @@ class MoodsController < ApplicationController
             mood: params[:mood],
             date: params[:date],
             win: params[:win],
-            challenge: params[:challenge]
+            challenge: params[:challenge],
+            user_id: User.last.id
         )
         mood.to_json
     end

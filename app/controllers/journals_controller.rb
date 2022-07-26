@@ -9,9 +9,11 @@ class JournalsController < ApplicationController
     end
 
     post '/journals' do
+        #binding.pry
         journal = Journal.create(
         date: params[:date],    
-        content: params[:content]
+        content: params[:content],
+        user_id: User.last.id
         )
         journal.to_json
     end

@@ -9,11 +9,22 @@ class TodosController < ApplicationController
         todo.to_json
     end
 
-    post '/todos' do
-        # binding.pry
+    # post '/todos' do
+        # @json = JSON.parse(request.body.read)
+        # #@json => {"todo"=>"test ets est"} 
+        # newtodo = Todo.create(
+        #     todo: @json[:todo]
+        #     )
+        #     newtodo.to_json
+            #binding.pry
+    # end
+
+     post '/todos' do
         todo = Todo.create(
-        todo: params[:todo]
-        )
+            todo: params[:todo],
+            user_id: User.last.id
+            )
+        #binding.pry
         todo.to_json
     end
 
